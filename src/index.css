@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap');
+
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — CSS custom properties
+   ============================================================ */
+:root {
+  --forest: #0F766E;
+  --forest-2: #115E59;
+  --forest-3: #14B8A6;
+  --champagne: #F8FAFC;
+  --champagne-dim: #C7E5E1;
+  --ink: #12343B;
+  --ink-dim: #4A686B;
+  --pass: #86EFAC;
+  --warn: #F4C95D;
+  --reject: #E86A5B;
+  --major-bbox: #E8615A;
+  --minor-bbox: #E9B949;
+  --hole-bbox: #F8FAFC;
+}
+
+@theme {
+  --color-forest: #102C26;
+  --color-forest-2: #163A32;
+  --color-forest-3: #1F4A40;
+  --color-champagne: #F7E7CE;
+  --color-champagne-dim: #C9BDA8;
+  --color-ink: #102C26;
+  --color-ink-dim: #4A5F58;
+  --color-pass: #7ED9A0;
+  --color-warn: #E9B949;
+  --color-reject: #E8615A;
+
+  --font-unbounded: 'Unbounded', sans-serif;
+  --font-spectral: 'Spectral', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-card: 24px;
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Spectral', serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--champagne);
+  background-color: var(--forest);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.font-unbounded { font-family: 'Unbounded', sans-serif; }
+.font-spectral  { font-family: 'Spectral', serif; }
+.font-mono      { font-family: 'JetBrains Mono', monospace; }
+
+h1, h2, h3, .heading {
+  font-family: 'Unbounded', sans-serif;
+  line-height: 1.1;
+}
+
+/* ============================================================
+   SECTION LABEL
+   ============================================================ */
+.section-label {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--champagne-dim);
+}
+
+.section-label-light {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-dim);
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card-dark {
+  background: var(--forest-2);
+  border-radius: var(--radius-card);
+  padding: 28px 32px;
+}
+
+.card-light {
+  background: var(--champagne);
+  border-radius: var(--radius-card);
+  padding: 28px 32px;
+}
+
+.card-on-light {
+  background: #FBF3E4;
+  border-radius: var(--radius-card);
+  padding: 28px 32px;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--champagne);
+  color: var(--ink);
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(247, 231, 206, 0.3);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--champagne);
+  outline-offset: 2px;
+}
+
+.btn-forest {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--forest);
+  color: var(--champagne);
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-forest:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(16, 44, 38, 0.4);
+}
+
+.btn-forest:focus-visible {
+  outline: 2px solid var(--champagne);
+  outline-offset: 2px;
+}
+
+.btn-reject {
+  background: var(--reject);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-reject:hover { transform: translateY(-1px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--champagne-dim);
+  border: 1px solid var(--forest-3);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  background: var(--forest-2);
+  color: var(--champagne);
+}
+
+/* ============================================================
+   GRADE BADGES
+   ============================================================ */
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.grade-a { background: var(--pass); }
+.grade-b { background: var(--warn); }
+.grade-reject { background: var(--reject); color: white; }
+
+/* ============================================================
+   WOVEN TEXTURE (forest sections)
+   ============================================================ */
+.woven-texture {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 4px,
+      rgba(247, 231, 206, 0.03) 4px,
+      rgba(247, 231, 206, 0.03) 5px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 4px,
+      rgba(247, 231, 206, 0.03) 4px,
+      rgba(247, 231, 206, 0.03) 5px
+    );
+}
+
+/* ============================================================
+   SCANNING LINE ANIMATION
+   ============================================================ */
+@keyframes scan {
+  0%   { top: 0; }
+  100% { top: 100%; }
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(126, 217, 160, 0.8), transparent);
+  animation: scan 1.5s linear infinite;
+  pointer-events: none;
+}
+
+/* ============================================================
+   FADE-UP ANIMATION
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .scan-line { animation: none; }
+  * { transition-duration: 0ms !important; }
+}
+
+/* ============================================================
+   FOCUS RINGS
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--champagne);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.defect-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Spectral', serif;
+  font-size: 15px;
+}
+
+.defect-table thead th {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 10px 14px;
+  text-align: left;
+  color: var(--champagne-dim);
+  border-bottom: 1px solid var(--forest-3);
+}
+
+.defect-table tbody tr:nth-child(even) { background: var(--forest-2); }
+.defect-table tbody tr:nth-child(odd)  { background: var(--forest); }
+
+.defect-table tbody td {
+  padding: 10px 14px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--forest-3);
+}
+
+.defect-table-light {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Spectral', serif;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.defect-table-light thead th {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 10px 14px;
+  text-align: left;
+  color: var(--ink-dim);
+  border-bottom: 1px solid #E0CFA8;
+}
+
+.defect-table-light tbody tr:nth-child(even) { background: #FBF3E4; }
+.defect-table-light tbody tr:nth-child(odd)  { background: var(--champagne); }
+
+.defect-table-light tbody td {
+  padding: 10px 14px;
+  vertical-align: middle;
+  border-bottom: 1px solid #E0CFA8;
+}
+
+/* ============================================================
+   DRAG DROP ZONE
+   ============================================================ */
+.drop-zone {
+  border: 2px dashed var(--forest-3);
+  border-radius: 16px;
+  transition: all 0.2s;
+}
+
+.drop-zone.dragging {
+  border-color: var(--champagne);
+  background: rgba(247, 231, 206, 0.05);
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav-link {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--champagne-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 4px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--champagne);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--forest); }
+::-webkit-scrollbar-thumb { background: var(--forest-3); border-radius: 3px; }
+
+/* ============================================================
+   INPUT STYLES
+   ============================================================ */
+.input-dark {
+  background: var(--forest);
+  border: 1px solid var(--forest-3);
+  border-radius: 8px;
+  color: var(--champagne);
+  padding: 10px 14px;
+  font-family: 'Spectral', serif;
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.input-dark:focus {
+  outline: none;
+  border-color: var(--champagne-dim);
+}
+
+.input-dark::placeholder { color: var(--champagne-dim); opacity: 0.6; }
+
+.select-dark {
+  background: var(--forest);
+  border: 1px solid var(--forest-3);
+  border-radius: 8px;
+  color: var(--champagne);
+  padding: 10px 14px;
+  font-family: 'Spectral', serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+
+.select-dark:focus {
+  outline: none;
+  border-color: var(--champagne-dim);
+}
+
+/* Range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--forest-3);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--champagne);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
