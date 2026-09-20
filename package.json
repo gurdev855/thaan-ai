@@ -1,6 +1,7 @@
 {
   "name": "thaan-ai",
   "private": true,
+  "start": "node server.js",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
